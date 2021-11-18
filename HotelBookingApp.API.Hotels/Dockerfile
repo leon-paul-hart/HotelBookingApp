@@ -11,12 +11,12 @@ COPY ["HotelBookingApp.API.Hotels/HotelBookingApp.API.Hotels.csproj", "HotelBook
 RUN dotnet restore "HotelBookingApp.API.Hotels/HotelBookingApp.API.Hotels.csproj"
 COPY . .
 WORKDIR "/src/HotelBookingApp.API.Hotels"
-RUN dotnet build "HotelBookingApp.API.Hotels.csproj" -c Release -o /app/build
+RUN dotnet build "HotelBookingApp.API.Hotels.csproj" -c Release -o /app
 
 FROM build AS publish
-RUN dotnet publish "HotelBookingApp.API.Hotels.csproj" -c Release -o /app/publish
+RUN dotnet publish "HotelBookingApp.API.Hotels.csproj" -c Release -o /app
 
 FROM base AS final
 WORKDIR /app
-COPY --from=publish /app/publish .
+COPY --from=publish /app/ .
 ENTRYPOINT ["dotnet", "HotelBookingApp.API.Hotels.dll"]
