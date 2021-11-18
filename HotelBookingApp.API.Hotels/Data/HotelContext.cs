@@ -6,7 +6,7 @@ namespace HotelBookingApp.API.Hotels.Data
 {
     public class HotelContext : DbContext
     {
-        public DbSet<Hotel> Hotel { get; set; }
+        public DbSet<Hotel> Hotel { get; set; } = null!;
 
         public HotelContext(DbContextOptions<HotelContext> options) : base(options)
         {
