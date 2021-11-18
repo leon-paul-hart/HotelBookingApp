@@ -6,7 +6,7 @@
 
         public int RoomNumber { get; set; }
 
-        public string RoomType { get; set; }
+        public string RoomType { get; set; } = string.Empty;
 
         public bool RoomAvailable { get; set; }
     }
