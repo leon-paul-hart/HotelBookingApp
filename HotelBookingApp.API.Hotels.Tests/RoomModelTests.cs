@@ -2,7 +2,7 @@
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace RoomBookingApp.API.Rooms.Tests
+namespace HotelBookingApp.API.Hotels.Tests
 {
     [TestClass]
     public class RoomModelTests

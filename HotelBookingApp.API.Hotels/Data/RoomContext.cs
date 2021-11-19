@@ -10,7 +10,6 @@ namespace HotelBookingApp.API.Hotels.Data
 
         public RoomContext(DbContextOptions<RoomContext> options) : base(options)
         {
-
         }
     }
 }

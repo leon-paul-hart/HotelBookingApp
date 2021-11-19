@@ -21,5 +21,3 @@ namespace HotelBookingApp.API.Hotels.Models
         public ICollection<Room> HotelRooms { get; set; } = new List<Room>();
     }
 }
-
-
