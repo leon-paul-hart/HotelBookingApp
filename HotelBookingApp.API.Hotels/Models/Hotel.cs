@@ -10,7 +10,7 @@
 
         public string HotelPostcode { get; set; } = string.Empty;
 
-        public ICollection<Room>? HotelRooms { get; set; }
+        public ICollection<Room> HotelRooms { get; set; } = new List<Room>();
     }
 }
 
