@@ -9,8 +9,10 @@ namespace HotelBookingApp.API.Hotels.Models
         [Key]
         public int RoomID { get; set; }
 
+        [Required]
         public int RoomNumber { get; set; }
 
+        [Required]
         public string RoomType { get; set; } = string.Empty;
 
         public bool RoomAvailable { get; set; }
