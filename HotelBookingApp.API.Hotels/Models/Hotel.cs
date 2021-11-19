@@ -1,7 +1,12 @@
-﻿namespace HotelBookingApp.API.Hotels.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace HotelBookingApp.API.Hotels.Models
 {
+    [Table("Hotel")]
     public class Hotel
     {
+        [Key]
         public int HotelID { get; set; }
 
         public string HotelName { get; set; } = string.Empty;
