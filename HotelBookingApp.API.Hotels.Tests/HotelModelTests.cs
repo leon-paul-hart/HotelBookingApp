@@ -20,7 +20,7 @@ namespace HotelBookingApp.API.Hotels.Tests
         }
 
         [TestMethod]
-        public void NewHotelModel_ID_NotNull()
+        public void NewHotelModel_HotelID_NotNull()
         {
             // Arrange
             Hotel hotel = new();
@@ -32,7 +32,7 @@ namespace HotelBookingApp.API.Hotels.Tests
         }
 
         [TestMethod]
-        public void NewHotelModel_Name_NotNull()
+        public void NewHotelModel_HotelName_NotNull()
         {
             // Arrange
             Hotel hotel = new();
@@ -44,7 +44,7 @@ namespace HotelBookingApp.API.Hotels.Tests
         }
 
         [TestMethod]
-        public void NewHotelModel_StreetAddress_NotNull()
+        public void NewHotelModel_HotelStreetAddress_NotNull()
         {
             // Arrange
             Hotel hotel = new();
@@ -56,7 +56,7 @@ namespace HotelBookingApp.API.Hotels.Tests
         }
 
         [TestMethod]
-        public void NewHotelModel_Postcode_NotNull()
+        public void NewHotelModel_HotelPostcode_NotNull()
         {
             // Arrange
             Hotel hotel = new();
@@ -68,7 +68,7 @@ namespace HotelBookingApp.API.Hotels.Tests
         }
 
         [TestMethod]
-        public void NewHotelModel_RoomList_NotNull()
+        public void NewHotelModel_HotelRooms_NotNull()
         {
             // Arrange
             Hotel hotel = new();
