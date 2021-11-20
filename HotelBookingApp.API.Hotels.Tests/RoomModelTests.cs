@@ -20,7 +20,7 @@ namespace HotelBookingApp.API.Hotels.Tests
         }
 
         [TestMethod]
-        public void NewRoomModel_ID_NotNull()
+        public void NewRoomModel_RoomID_NotNull()
         {
             // Arrange
             Room room = new();
@@ -32,7 +32,7 @@ namespace HotelBookingApp.API.Hotels.Tests
         }
 
         [TestMethod]
-        public void NewRoomModel_Number_NotNull()
+        public void NewRoomModel_RoomNumber_NotNull()
         {
             // Arrange
             Room room = new();
