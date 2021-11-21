@@ -15,8 +15,9 @@ namespace HotelBookingApp.API.Hotels.Models
         [Required]
         public string RoomType { get; set; } = string.Empty;
 
-        public bool RoomAvailable { get; set; }
+        public bool RoomAvailable { get; set; } = false;
 
+        [Required]
         [ForeignKey("HotelID")]
         public int HotelID { get; set; }
     }
