@@ -10,11 +10,14 @@ namespace HotelBookingApp.API.Hotels.Controllers
     [ApiController]
     public class HotelsController : ControllerBase
     {
-        private readonly HotelContext _context;
+        private readonly HotelContext _hotelContext;
 
-        public HotelsController(HotelContext context)
+        private readonly RoomContext _roomContext;
+
+        public HotelsController(HotelContext hotelContext, RoomContext roomContext)
         {
-            _context = context;
+            _hotelContext = hotelContext;
+            _roomContext = roomContext;
         }
 
         // GET: api/Hotels
@@ -25,7 +28,7 @@ namespace HotelBookingApp.API.Hotels.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Hotel>>> GetHotel()
         {
-            return await _context.Hotel.ToListAsync();
+            return await _hotelContext.Hotel.ToListAsync();
         }
 
         // GET: api/Hotels/5
@@ -37,12 +40,14 @@ namespace HotelBookingApp.API.Hotels.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Hotel>> GetHotel(int id)
         {
-            Hotel? hotel = await _context.Hotel.FindAsync(id);
+            Hotel? hotel = await _hotelContext.Hotel.FindAsync(id);
 
             if (hotel == null)
             {
                 return NotFound();
             }
+
+            hotel.HotelRooms = _roomContext.Room.Where(x => x.HotelID == id).ToList();
 
             return hotel;
         }
@@ -63,11 +68,11 @@ namespace HotelBookingApp.API.Hotels.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(hotel).State = EntityState.Modified;
+            _hotelContext.Entry(hotel).State = EntityState.Modified;
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _hotelContext.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -94,9 +99,9 @@ namespace HotelBookingApp.API.Hotels.Controllers
         [HttpPost]
         public async Task<ActionResult<Hotel>> PostHotel(Hotel hotel)
         {
-            _context.Hotel.Add(hotel);
+            _hotelContext.Hotel.Add(hotel);
 
-            await _context.SaveChangesAsync();
+            await _hotelContext.SaveChangesAsync();
 
             return CreatedAtAction("GetHotel", new { id = hotel.HotelID }, hotel);
         }
@@ -110,23 +115,23 @@ namespace HotelBookingApp.API.Hotels.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteHotel(int id)
         {
-            Hotel? hotel = await _context.Hotel.FindAsync(id);
+            Hotel? hotel = await _hotelContext.Hotel.FindAsync(id);
 
             if (hotel == null)
             {
                 return NotFound();
             }
 
-            _context.Hotel.Remove(hotel);
+            _hotelContext.Hotel.Remove(hotel);
 
-            await _context.SaveChangesAsync();
+            await _hotelContext.SaveChangesAsync();
 
             return NoContent();
         }
 
         private bool HotelExists(int id)
         {
-            return _context.Hotel.Any(e => e.HotelID == id);
+            return _hotelContext.Hotel.Any(e => e.HotelID == id);
         }
     }
 }
