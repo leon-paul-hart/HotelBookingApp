@@ -28,7 +28,7 @@ namespace HotelBookingApp.API.Bookings.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Booking>> GetBooking(int id)
         {
-            var booking = await _context.Booking.FindAsync(id);
+            Booking? booking = await _context.Booking.FindAsync(id);
 
             if (booking == null)
             {
@@ -75,6 +75,7 @@ namespace HotelBookingApp.API.Bookings.Controllers
         public async Task<ActionResult<Booking>> PostBooking(Booking booking)
         {
             _context.Booking.Add(booking);
+
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetBooking", new { id = booking.BookingID }, booking);
@@ -84,13 +85,15 @@ namespace HotelBookingApp.API.Bookings.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBooking(int id)
         {
-            var booking = await _context.Booking.FindAsync(id);
+            Booking? booking = await _context.Booking.FindAsync(id);
+
             if (booking == null)
             {
                 return NotFound();
             }
 
             _context.Booking.Remove(booking);
+
             await _context.SaveChangesAsync();
 
             return NoContent();
