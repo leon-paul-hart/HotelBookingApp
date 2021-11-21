@@ -18,6 +18,10 @@ namespace HotelBookingApp.API.Hotels.Controllers
         }
 
         // GET: api/Hotels
+        /// <summary>
+        /// Returns a list of all Hotels in the database.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Hotel>>> GetHotel()
         {
@@ -25,6 +29,11 @@ namespace HotelBookingApp.API.Hotels.Controllers
         }
 
         // GET: api/Hotels/5
+        /// <summary>
+        /// Returns a specific Hotel from the database matching the provided valid HotelID.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Hotel>> GetHotel(int id)
         {
@@ -40,6 +49,12 @@ namespace HotelBookingApp.API.Hotels.Controllers
 
         // PUT: api/Hotels/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Updates the database details of a particular Hotel when provided with a valid HotelID and updated Hotel model.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="hotel"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutHotel(int id, Hotel hotel)
         {
@@ -71,6 +86,11 @@ namespace HotelBookingApp.API.Hotels.Controllers
 
         // POST: api/Hotels
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Adds a new Hotel to the database if provided with a valid Hotel model.
+        /// </summary>
+        /// <param name="hotel"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<Hotel>> PostHotel(Hotel hotel)
         {
@@ -82,6 +102,11 @@ namespace HotelBookingApp.API.Hotels.Controllers
         }
 
         // DELETE: api/Hotels/5
+        /// <summary>
+        /// Deletes a particular Hotel from the database when provided with a valid HotelID.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteHotel(int id)
         {

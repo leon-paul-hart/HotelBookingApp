@@ -18,6 +18,10 @@ namespace HotelBookingApp.API.Hotels.Controllers
         }
 
         // GET: api/Rooms
+        /// <summary>
+        /// Returns a list of all rooms in the database.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Room>>> GetRoom()
         {
@@ -25,6 +29,11 @@ namespace HotelBookingApp.API.Hotels.Controllers
         }
 
         // GET: api/Rooms/5
+        /// <summary>
+        /// Returns a specific Room from the database matching the provided valid RoomID.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Room>> GetRoom(int id)
         {
@@ -40,6 +49,12 @@ namespace HotelBookingApp.API.Hotels.Controllers
 
         // PUT: api/Rooms/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Updates the database details of a particular Room when provided with a valid RoomID and updated Room model.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="room"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutRoom(int id, Room room)
         {
@@ -71,6 +86,11 @@ namespace HotelBookingApp.API.Hotels.Controllers
 
         // POST: api/Rooms
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Adds a new Room to the database if provided with a valid Room model.
+        /// </summary>
+        /// <param name="room"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<Room>> PostRoom(Room room)
         {
@@ -82,6 +102,11 @@ namespace HotelBookingApp.API.Hotels.Controllers
         }
 
         // DELETE: api/Rooms/5
+        /// <summary>
+        /// Deletes a particular Room from the database when provided with a valid RoomID.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRoom(int id)
         {
