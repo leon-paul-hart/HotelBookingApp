@@ -1,0 +1,24 @@
+version: '3.4'
+
+services:
+  hotelbookingapp.mvc.client:
+    image: ${DOCKER_REGISTRY-}hotelbookingappmvcclient
+    container_name: MvcClient
+    build:
+      context: .
+      dockerfile: HotelBookingApp.MVC.Client/Dockerfile
+
+  hotelbookingapp.api.hotels:
+    image: ${DOCKER_REGISTRY-}hotelbookingappapihotels
+    container_name: HotelsApi
+    build:
+      context: .
+      dockerfile: HotelBookingApp.API.Hotels/Dockerfile
+
+  hotelbookingapp.api.bookings:
+    image: ${DOCKER_REGISTRY-}hotelbookingappapibookings
+    container_name: BookingsApi
+    build:
+      context: .
+      dockerfile: HotelBookingApp.API.Bookings/Dockerfile
+
