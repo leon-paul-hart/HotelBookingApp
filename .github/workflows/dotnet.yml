@@ -20,6 +20,6 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore HotelBookingApp.sln
     - name: Build
-      run: dotnet build --no-restore HotelBookingApp.sln
+      run: dotnet build HotelBookingApp.sln --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test HotelBookingApp.sln --no-build --verbosity normal
