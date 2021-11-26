@@ -3,6 +3,8 @@ WebApplicationBuilder? builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddHttpClient("HotelAPI", x => { x.BaseAddress = new Uri("http://hotelbookingapp.api.hotels/api/"); });
+
 WebApplication? app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -14,7 +16,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 

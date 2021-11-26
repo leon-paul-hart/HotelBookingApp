@@ -1,0 +1,56 @@
+﻿@using HotelBookingApp.MVC.Client.Models
+
+@model IEnumerable<HotelBookingApp.MVC.Client.Models.HotelViewModel>
+
+@{
+    ViewData["Title"] = "Hotel Index";
+}
+
+<h1>Hotels</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HotelID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HotelName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HotelStreetAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HotelPostcode)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (HotelViewModel item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HotelID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HotelName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HotelStreetAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HotelPostcode)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new {  item.HotelID  }) |
+                    @Html.ActionLink("Details", "Details", new {  item.HotelID  }) |
+                    @Html.ActionLink("Delete", "Delete", new {  item.HotelID  })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

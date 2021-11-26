@@ -16,6 +16,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<UserSecretsId>7fccd8b4-be58-459d-8fbc-6cf32bc8863b</UserSecretsId>
 		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

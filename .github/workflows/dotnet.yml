@@ -18,8 +18,8 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore HotelBookingApp.sln
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build HotelBookingApp.sln --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test HotelBookingApp.sln --no-build --verbosity normal
