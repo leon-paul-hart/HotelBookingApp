@@ -16,7 +16,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Data.Sqlite.Core" Version="6.0.1" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.1" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Design" Version="1.1.6" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.1">
 			<PrivateAssets>all</PrivateAssets>
